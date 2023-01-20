@@ -11,12 +11,13 @@ var txtVidas;
 var fondoJuego;
 var cursores;
 var sonidoDisparo;
+var txtAutor;
 
 var Juego={
 	preload: function () {
 		juego.load.image('nave','img/nave.png');
 		juego.load.image('laser','img/laser.png');
-		juego.load.image('malo','img/malo.png');
+		juego.load.image('malo','img/alien.png');
 		juego.load.image('bg','img/bg.png');
 		juego.load.audio('lazer','sounds/disparo.mp3')
 	},
@@ -58,7 +59,8 @@ var Juego={
 		vidas = 3;
 		juego.add.text(310,20,"Vidas: " , {font:"14px Arial",fill:"#FFF"});
 		txtVidas = juego.add.text(360,20,"3",{font:"14px Arial",fill:"#FFF"});
-
+		/*Colocando el nombre del Desarrollado */
+		txtAutor = juego.add.text(290,520,"Clever Salvador",{font:"14px Arial",fill:"#FFF"})
 		/*Cursores*/
 		cursores = juego.input.keyboard.createCursorKeys();
 	},
