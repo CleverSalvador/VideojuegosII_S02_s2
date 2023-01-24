@@ -11,6 +11,8 @@ var txtVidas;
 var fondoJuego;
 var cursores;
 var sonidoDisparo;
+var sonidoBack;
+var soundPuntos;
 var txtAutor;
 
 var Juego={
@@ -19,7 +21,9 @@ var Juego={
 		juego.load.image('laser','img/laser.png');
 		juego.load.image('malo','img/alien.png');
 		juego.load.image('bg','img/bg.png');
-		juego.load.audio('lazer','sounds/disparo.mp3')
+		juego.load.audio('lazer','sounds/disparo.mp3');
+		juego.load.audio('soundPuntos','sounds/puntos.mp3');
+		juego.load.audio('sountrack','sounds/sountrack.mp3');
 	},
 
 	create: function(){
@@ -63,6 +67,9 @@ var Juego={
 		txtAutor = juego.add.text(290,520,"Clever Salvador",{font:"14px Arial",fill:"#FFF"})
 		/*Cursores*/
 		cursores = juego.input.keyboard.createCursorKeys();
+		//Sonido back
+		sonidoBack = juego.sound.add('sountrack');
+        sonidoBack.play();
 	},
 	update: function(){
 		fondoJuego.tilePosition.y-=1;
@@ -123,6 +130,8 @@ var Juego={
 	},
 
 	collision: function(b,m) {
+		soundPuntos = juego.sound.add('soundPuntos');
+        soundPuntos.play();
 		b.kill();
 		m.kill();
 		puntos ++;
